@@ -1,20 +1,19 @@
-package org.example;
+package org.testing;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Navigator extends PageBase{
 
-    public Navigator(WebDriver driver){
-        super(driver);
+    public Navigator(ManagerBase manager){
+        super(manager);
     }
 
     private WebElement btnContragents() {
-        return driver.findElement(By.xpath("//span[.='Контрагенты']"));
+        return manager.driver().findElement(By.xpath("//span[.='Контрагенты']"));
     }
     private WebElement btnMain() {
-        return driver.findElement(By.xpath("//span[.='Главная']"));
+        return manager.driver().findElement(By.xpath("//span[.='Главная']"));
     }
 
     public void goToContragentPage() {

@@ -1,17 +1,16 @@
-package org.example;
+package org.testing;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+
 
 import java.util.List;
 
 public class ContragentsListPage extends PageBase {
 
-    public ContragentsListPage(WebDriver driver)  {
-        super(driver);
+    public ContragentsListPage(ManagerBase manager)  {
+        super(manager);
     }
 
     @FindBy(xpath = "//div[@class='btn-group actions open']/ul[@class='dropdown-menu actions-menu' and 1]")
@@ -34,6 +33,9 @@ public class ContragentsListPage extends PageBase {
     @CacheLookup
     private WebElement btnDeleteConfirm;
 
+    @FindBy(xpath = "//a[@class='btn btn-default action']")
+    private WebElement btnCreateContragent;
+
     public ContragentsListPage deleteContragent(String tmpStr){
         if(isElementPresent(chekboxContragent)) {
             chekboxContragent.click();
@@ -50,14 +52,13 @@ public class ContragentsListPage extends PageBase {
         return this;
     }
 
-    public ContragentsListPage clickByCreateContragentButton() throws InterruptedException {
-        driver.findElement(By.linkText("Создать контрагента")).click();
-        Thread.sleep(1000);  // temp
+    public ContragentsListPage clickByCreateContragentButton() {
+        btnCreateContragent.click();
         return this;
     }
 
 
-    public boolean isElementPresent(WebElement element){    //move in tools
+    public boolean isElementPresent(WebElement element){    //move to tools
         try {
             element.isEnabled();
             return true;

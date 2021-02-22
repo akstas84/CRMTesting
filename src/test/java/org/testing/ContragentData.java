@@ -1,4 +1,4 @@
-package org.example;
+package org.testing;
 
 public class ContragentData {
 

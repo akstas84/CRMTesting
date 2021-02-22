@@ -1,4 +1,4 @@
-package org.example;
+package org.testing;
 
 import org.junit.*;
 
@@ -7,14 +7,15 @@ public class CreateContragentTests extends TestBase {
 
     @Test
     public void createContragentTest() throws Exception {
-        navigator.goToContragentPage();
-        contragentsListPage
+        manager.navigator()
+                .goToContragentPage();
+        manager.contragentsListPage()
                 .deleteContragent("Удалить")
                 .clickByCreateContragentButton();
-        contragentFormPage
+        manager.contragentFormPage()
                 .fillContragentForm(new ContragentData("Станислав", "stanislav@tets.test", "Партнер", "Защита"))
                 .clickToSaveBtn();
-        contragentsListPage
+        manager.contragentsListPage()
                 .CheckResualsAfterCreatedContragent();
     }
 }

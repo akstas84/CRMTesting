@@ -1,4 +1,4 @@
-package org.example;
+package org.testing;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -6,8 +6,8 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ContragentFormPage extends PageBase{
 
-    public ContragentFormPage(WebDriver driver){
-        super(driver);
+    public ContragentFormPage(ManagerBase manager){
+        super(manager);
     }
 
     @FindBy(xpath = "//button[contains(text(),'Сохранить')]" )
