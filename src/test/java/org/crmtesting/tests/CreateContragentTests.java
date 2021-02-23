@@ -1,5 +1,6 @@
-package org.testing;
+package org.crmtesting.tests;
 
+import org.crmtesting.model.ContragentData;
 import org.junit.*;
 
 // @Feature("Contragent")

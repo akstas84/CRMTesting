@@ -1,9 +1,11 @@
-package org.testing;
+package org.crmtesting.manager;
 
+import org.crmtesting.manager.ManagerBase;
+import org.crmtesting.pages.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Navigator extends PageBase{
+public class Navigator extends PageBase {
 
     public Navigator(ManagerBase manager){
         super(manager);

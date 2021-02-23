@@ -1,11 +1,11 @@
-package org.testing;
+package org.crmtesting.model;
 
 public class AccountData {
 
     private String username;
     private String password;
 
-    AccountData(String username, String password){
+    public AccountData(String username, String password){
         this.username = username;
         this.password = password;
     }

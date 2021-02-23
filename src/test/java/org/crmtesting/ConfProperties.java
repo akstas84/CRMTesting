@@ -1,4 +1,4 @@
-package org.testing;
+package org.crmtesting;
 
 import java.io.FileInputStream;
 import java.io.IOException;

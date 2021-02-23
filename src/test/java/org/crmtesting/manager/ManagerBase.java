@@ -1,8 +1,11 @@
-package org.testing;
+package org.crmtesting.manager;
 
+import org.crmtesting.ConfProperties;
+import org.crmtesting.pages.LoginPage;
+import org.crmtesting.pages.ContragentFormPage;
+import org.crmtesting.pages.ContragentsListPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class ManagerBase {
     protected static WebDriver driver;

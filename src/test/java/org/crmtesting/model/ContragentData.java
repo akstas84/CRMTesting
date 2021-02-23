@@ -1,4 +1,4 @@
-package org.testing;
+package org.crmtesting.model;
 
 public class ContragentData {
 

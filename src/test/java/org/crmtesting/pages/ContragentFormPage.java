@@ -1,10 +1,12 @@
-package org.testing;
+package org.crmtesting.pages;
 
+import org.crmtesting.manager.ManagerBase;
+import org.crmtesting.model.ContragentData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class ContragentFormPage extends PageBase{
+public class ContragentFormPage extends PageBase {
 
     public ContragentFormPage(ManagerBase manager){
         super(manager);

@@ -1,5 +1,8 @@
-package org.testing;
+package org.crmtesting.pages;
 
+import org.crmtesting.manager.ManagerBase;
+import org.crmtesting.model.AccountData;
+import org.crmtesting.pages.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

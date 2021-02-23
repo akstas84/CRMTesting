@@ -1,8 +1,11 @@
-package org.testing;
+package org.crmtesting.tests;
 
+import org.crmtesting.ConfProperties;
+import org.crmtesting.manager.ManagerBase;
+import org.crmtesting.model.AccountData;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -15,7 +18,7 @@ public class TestBase {
         manager.driver().manage().window().maximize();
         manager.driver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         manager.driver().get(ConfProperties.getProperty("loginpage"));
-        manager.loginPage.inputLogin(new AccountData(ConfProperties.getProperty("login"), ConfProperties.getProperty("passwd")));
+        manager.loginPage().inputLogin(new AccountData(ConfProperties.getProperty("login"), ConfProperties.getProperty("passwd")));
     }
 
     @AfterClass

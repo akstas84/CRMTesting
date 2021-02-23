@@ -1,5 +1,6 @@
-package org.testing;
+package org.crmtesting.pages;
 
+import org.crmtesting.manager.ManagerBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
