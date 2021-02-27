@@ -1,6 +1,7 @@
 package org.crmtesting.pages;
 
 import org.crmtesting.manager.ManagerBase;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -69,8 +70,5 @@ public class ContragentsListPage extends PageBase {
         }
     }
 
-    public ContragentsListPage CheckResualsAfterCreatedContragent() {
-        // Assert
-        return this;
-    }
+
 }

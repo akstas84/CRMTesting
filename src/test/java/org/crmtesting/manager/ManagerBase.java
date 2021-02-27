@@ -2,7 +2,7 @@ package org.crmtesting.manager;
 
 import org.crmtesting.ConfProperties;
 import org.crmtesting.pages.LoginPage;
-import org.crmtesting.pages.ContragentFormPage;
+import org.crmtesting.pages.ContragentPage;
 import org.crmtesting.pages.ContragentsListPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +13,7 @@ public class ManagerBase {
     protected static LoginPage loginPage;
     protected static Navigator navigator;
     protected static ContragentsListPage contragentsListPage;
-    protected static ContragentFormPage contragentFormPage;
+    protected static ContragentPage contragentFormPage;
 
     public ManagerBase(){
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
@@ -21,7 +21,7 @@ public class ManagerBase {
         loginPage  =  new LoginPage(this);
         navigator = new Navigator(this);
         contragentsListPage = new ContragentsListPage(this);
-        contragentFormPage = new ContragentFormPage(this);
+        contragentFormPage = new ContragentPage(this);
     }
 
     public static WebDriver driver() {
@@ -45,7 +45,7 @@ public class ManagerBase {
         return contragentsListPage;
     }
 
-    public static ContragentFormPage contragentFormPage() {
+    public static ContragentPage contragentFormPage() {
         return contragentFormPage;
     }
 }

@@ -2,13 +2,14 @@ package org.crmtesting.pages;
 
 import org.crmtesting.manager.ManagerBase;
 import org.crmtesting.model.ContragentData;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class ContragentFormPage extends PageBase {
+public class ContragentPage extends PageBase {
 
-    public ContragentFormPage(ManagerBase manager){
+    public ContragentPage(ManagerBase manager){
         super(manager);
     }
 
@@ -17,25 +18,33 @@ public class ContragentFormPage extends PageBase {
     @FindBy(xpath = "//button[contains(text(),'Отменить')]" )
     private WebElement btnCancel;
     @FindBy(xpath = "//input[@type='text'][@data-name='name']")
-    private WebElement fildName;
+    private WebElement fieldName;
     @FindBy(xpath = "//input[@class='form-control email-address']")
-    private WebElement fildEmail;
+    private WebElement fieldEmail;
     @FindBy (xpath = "//select[@data-name='type']")
     private WebElement selectType;
     @FindBy (xpath = "//select[@data-name='industry']")
     private WebElement selectActivity;
+    @FindBy(xpath = "//div[@class='field'][@data-name='name']")
+    private WebElement nameCreatedContragent;
 
-    public ContragentFormPage  fillContragentForm(ContragentData contragentData) {
-        fildName.sendKeys(contragentData.name());
-        fildEmail.sendKeys(contragentData.mail());
+    public ContragentPage fillContragentForm(ContragentData contragentData) {
+        fieldName.sendKeys(contragentData.name());
+        fieldEmail.sendKeys(contragentData.mail());
         Select typeDropdown = new Select(selectType);
         typeDropdown.selectByVisibleText(contragentData.type());
         Select activityDropdown = new Select(selectActivity);
         activityDropdown.selectByVisibleText(contragentData.activity());
         return this;
     }
-    public ContragentFormPage clickToSaveBtn(){
+    public ContragentPage clickToSaveBtn(){
         btnSave.click();
+        return this;
+    }
+    public ContragentPage CheckResualsAfterCreatedContragent(String str) throws InterruptedException {
+        Thread.sleep(1000); //temp
+        String strName = nameCreatedContragent.getText();
+        Assert.assertEquals("", strName ,  str);
         return this;
     }
 }
