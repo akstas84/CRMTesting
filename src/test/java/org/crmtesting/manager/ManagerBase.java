@@ -1,11 +1,11 @@
 package org.crmtesting.manager;
 
-import org.crmtesting.ConfProperties;
 import org.crmtesting.pages.LoginPage;
 import org.crmtesting.pages.ContragentPage;
 import org.crmtesting.pages.ContragentsListPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+// ToDo managerBase
 
 public class ManagerBase {
     protected static WebDriver driver;
@@ -15,13 +15,7 @@ public class ManagerBase {
     protected static ContragentsListPage contragentsListPage;
     protected static ContragentPage contragentFormPage;
 
-    public ManagerBase(){
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-        driver = new ChromeDriver();
-        loginPage  =  new LoginPage(this);
-        navigator = new Navigator(this);
-        contragentsListPage = new ContragentsListPage(this);
-        contragentFormPage = new ContragentPage(this);
+    public ManagerBase() {
     }
 
     public static WebDriver driver() {
@@ -29,8 +23,10 @@ public class ManagerBase {
     }
 
     public void stop() {
-        loginPage.logoutCRM();
-        driver.quit();
+        if (driver != null) {
+            loginPage.logoutCRM();
+            driver.quit();
+        }
     }
 
     public static LoginPage loginPage() {

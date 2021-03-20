@@ -1,16 +1,13 @@
 package org.crmtesting.pages;
 
-import org.crmtesting.manager.ManagerBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public class PageBase {
     protected static WebDriver driver;
-    protected static ManagerBase manager;
 
-    public PageBase(ManagerBase manager) {
-          this.manager = manager;
-          this.driver = manager.driver();
-          PageFactory.initElements(manager.driver(), this);
+    public PageBase(WebDriver driver) {
+          this.driver = driver;
+          PageFactory.initElements(driver, this);
     }
 }

@@ -4,27 +4,35 @@ import org.crmtesting.manager.ManagerBase;
 import org.crmtesting.model.AccountData;
 import org.crmtesting.pages.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
 
 
 public class LoginPage extends PageBase {
 
-    public LoginPage(ManagerBase manager) {
-        super(manager);
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     private WebElement fieldUserName(){
-        return manager.driver().findElement(By.id("field-userName"));
+        return driver.findElement(By.id("field-userName"));
     }
+//    @FindBy(id ="field-userName")
+//    @CacheLookup
+//    private WebElement fieldUserName;
+
     private WebElement feildPassword(){
-        return manager.driver().findElement(By.id("field-password"));
+        return driver.findElement(By.id("field-password"));
     }
     private WebElement btnLogin(){
-        return manager.driver().findElement(By.id("btn-login"));
+        return driver.findElement(By.id("btn-login"));
     }
 
     public void inputUserName(AccountData accountData) {
-        fieldUserName().sendKeys(accountData.name());
+          fieldUserName().sendKeys(accountData.name());
+     //   fieldUserName.sendKeys(accountData.name());
     }
     public void inputPassword(AccountData accountData) {
         feildPassword().sendKeys(accountData.password());
@@ -40,7 +48,7 @@ public class LoginPage extends PageBase {
     }
 
     public void logoutCRM(){
-        manager.driver().findElement(By.id("nav-menu-dropdown")).click();
-        manager.driver().findElement(By.linkText("Выйти")).click();
+        driver.findElement(By.id("nav-menu-dropdown")).click();
+        driver.findElement(By.linkText("Выйти")).click();
     }
 }

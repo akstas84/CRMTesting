@@ -1,18 +1,18 @@
 package org.crmtesting.pages;
 
-import org.crmtesting.manager.ManagerBase;
-import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
 public class ContragentsListPage extends PageBase {
 
-    public ContragentsListPage(ManagerBase manager)  {
-        super(manager);
+    public ContragentsListPage(WebDriver driver)  {
+        super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//div[@class='btn-group actions open']/ul[@class='dropdown-menu actions-menu' and 1]")
@@ -22,6 +22,7 @@ public class ContragentsListPage extends PageBase {
     @FindBy(css ="div#main td:nth-child(1) > span > input")
     @CacheLookup
     private WebElement chekboxContragent;
+
 
     @FindBy(xpath ="//button[contains(text(),'Действия')]")
     @CacheLookup
@@ -59,7 +60,6 @@ public class ContragentsListPage extends PageBase {
         return this;
     }
 
-
     public boolean isElementPresent(WebElement element){    //move to tools
         try {
             element.isEnabled();
@@ -69,6 +69,4 @@ public class ContragentsListPage extends PageBase {
             return false;
         }
     }
-
-
 }

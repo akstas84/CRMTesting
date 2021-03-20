@@ -1,6 +1,5 @@
 package org.crmtesting.pages;
 
-import org.crmtesting.manager.ManagerBase;
 import org.crmtesting.model.ContragentData;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -9,8 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ContragentPage extends PageBase {
 
-    public ContragentPage(ManagerBase manager){
-        super(manager);
+    public ContragentPage(WebDriver driver){
+        super(driver);
     }
 
     @FindBy(xpath = "//button[contains(text(),'Сохранить')]" )
@@ -42,7 +41,7 @@ public class ContragentPage extends PageBase {
         return this;
     }
     public ContragentPage CheckResualsAfterCreatedContragent(String str) throws InterruptedException {
-        Thread.sleep(1000); //temp
+        Thread.sleep(2000); //temp
         String strName = nameCreatedContragent.getText();
         Assert.assertEquals("", strName ,  str);
         return this;
