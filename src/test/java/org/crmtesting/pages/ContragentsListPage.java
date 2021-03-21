@@ -39,12 +39,12 @@ public class ContragentsListPage extends PageBase {
     @FindBy(xpath = "//a[@class='btn btn-default action']")
     private WebElement btnCreateContragent;
 
-    public ContragentsListPage deleteContragent(String tmpStr){
+    public ContragentsListPage deleteContragent(){
         if(isElementPresent(chekboxContragent)) {
             chekboxContragent.click();
             btnActions.click();
             for (WebElement webElement : listDropElement) {
-                if(webElement.getText() == tmpStr){
+                if(webElement.getText() == "Удалить"){
                     webElement.click();
                     break;
                 }

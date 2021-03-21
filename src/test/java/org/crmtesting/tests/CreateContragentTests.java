@@ -10,11 +10,23 @@ public class CreateContragentTests extends TestBase {
         navigator
                 .goToContragentPage();
         contragentsListPage
-                .deleteContragent("Удалить") //ToDo
+                .deleteContragent()
                 .clickByCreateContragentButton();
         contragentFormPage
-                .fillContragentForm(new ContragentData("Станислав", "stanislav@tets.test", "Партнер", "Защита"))
+                .fillContragentForm(new ContragentData())
                 .clickToSaveBtn()
-                .CheckResualsAfterCreatedContragent("Станислав"); //ToDo
+                .CheckResualsAfterCreatedContragent(new ContragentData().name());
+    }
+    @Test
+    public void createContragentPTest() throws Exception {
+        navigator
+                .goToContragentPage();
+        contragentsListPage
+                .deleteContragent()
+                .clickByCreateContragentButton();
+        contragentFormPage
+                .fillContragentForm(new ContragentData())
+                .clickToSaveBtn()
+                .CheckResualsAfterCreatedContragent(new ContragentData().name());
     }
 }

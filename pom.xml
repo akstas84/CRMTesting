@@ -36,7 +36,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.version}</version>
                 <configuration>
-                    <parallel>classes</parallel>
+                    <parallel>methods</parallel>
                     <threadCount>2</threadCount>
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                 </configuration>
