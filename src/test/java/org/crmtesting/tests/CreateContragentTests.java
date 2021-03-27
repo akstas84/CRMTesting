@@ -1,32 +1,21 @@
 package org.crmtesting.tests;
 
-import org.crmtesting.model.ContragentData;
-import org.junit.Test;
+import org.crmtesting.model.ContragentDataProvider;
+import org.testng.annotations.Test;
 
 public class CreateContragentTests extends TestBase {
 
-    @Test
-    public void createContragentTest() throws Exception {
+    @Test(dataProvider = "ContragentDataProvider",
+            dataProviderClass = ContragentDataProvider.class)
+    public void createContragentTest(ContragentDataProvider data) throws Exception {
         navigator
                 .goToContragentPage();
         contragentsListPage
                 .deleteContragent()
                 .clickByCreateContragentButton();
         contragentFormPage
-                .fillContragentForm(new ContragentData())
+                .fillContragentForm(data)
                 .clickToSaveBtn()
-                .CheckResualsAfterCreatedContragent(new ContragentData().name());
-    }
-    @Test
-    public void createContragentPTest() throws Exception {
-        navigator
-                .goToContragentPage();
-        contragentsListPage
-                .deleteContragent()
-                .clickByCreateContragentButton();
-        contragentFormPage
-                .fillContragentForm(new ContragentData())
-                .clickToSaveBtn()
-                .CheckResualsAfterCreatedContragent(new ContragentData().name());
+                .CheckResualsAfterCreatedContragent(data);
     }
 }

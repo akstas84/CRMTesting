@@ -6,11 +6,12 @@ import org.crmtesting.model.AccountData;
 import org.crmtesting.pages.ContragentPage;
 import org.crmtesting.pages.ContragentsListPage;
 import org.crmtesting.pages.LoginPage;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.concurrent.TimeUnit;
@@ -23,7 +24,7 @@ public class TestBase {
     protected ContragentsListPage contragentsListPage;
     protected ContragentPage contragentFormPage;
 
-    @Before
+    @BeforeSuite
     public void setUp() throws MalformedURLException {
 // ToDo mvn clean test -Dgrid.connection.url=http://example.com:4444/wd/hub -Dgrid.browser.name=firefox -Dgrid.browser.version=85.0
 // ToDo mvn clean test -Dgrid.connection.url=http://example.com:4444/wd/hub -Dgrid.browser.name=chrome -Dgrid.browser.version=88.0
@@ -55,7 +56,7 @@ public class TestBase {
         contragentFormPage = new ContragentPage(driver);
     }
 
-    @After
+    @AfterSuite
     public void tearDown() {
         if (driver != null) {
             loginPage.logoutCRM();
