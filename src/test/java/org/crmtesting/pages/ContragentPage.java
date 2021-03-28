@@ -1,6 +1,6 @@
 package org.crmtesting.pages;
 
-import org.crmtesting.model.ContragentDataProvider;
+import org.crmtesting.model.DataProviderBase;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -27,7 +27,17 @@ public class ContragentPage extends PageBase {
     @FindBy(xpath = "//div[@class='field'][@data-name='name']")
     private WebElement nameCreatedContragent;
 
-    public ContragentPage fillContragentForm(ContragentDataProvider data) {
+    public ContragentPage fillContragentForm(String FirstName, String email, String type,String activity) {
+        fieldName.sendKeys(FirstName);
+        fieldEmail.sendKeys(email);
+        Select typeDropdown = new Select(selectType);
+        typeDropdown.selectByVisibleText(type);
+        Select activityDropdown = new Select(selectActivity);
+        activityDropdown.selectByVisibleText(activity);
+        return this;
+    }
+
+    public ContragentPage fillContragentForm(DataProviderBase data) {
         fieldName.sendKeys(data.getName());
         fieldEmail.sendKeys(data.getEmail());
         Select typeDropdown = new Select(selectType);
@@ -40,7 +50,14 @@ public class ContragentPage extends PageBase {
         btnSave.click();
         return this;
     }
-    public ContragentPage CheckResualsAfterCreatedContragent(ContragentDataProvider data) throws InterruptedException {
+    public ContragentPage CheckResualsAfterCreatedContragent(String name) throws InterruptedException {
+        Thread.sleep(2000); // Todo
+        String strName = nameCreatedContragent.getText();
+        Assert.assertEquals(strName ,  name, "Имя контрагента "
+                + strName + "не совпадает с проверяемым после создания :" + name);
+        return this;
+    }
+    public ContragentPage CheckResualsAfterCreatedContragent(DataProviderBase data) throws InterruptedException {
         Thread.sleep(2000); // Todo
         String strName = nameCreatedContragent.getText();
         Assert.assertEquals(strName ,  data.getName(), "Имя контрагента "
