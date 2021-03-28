@@ -1,0 +1,10 @@
+{
+  "contragents": [
+    {
+      "firstName": "TestName1",
+      "email"    : "test1@test1.test",
+      "type"     : "Партнер",
+      "activity" : "Защита"
+    }
+  ]
+}
